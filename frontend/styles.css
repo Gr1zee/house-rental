@@ -1,0 +1,8 @@
+/* Кастомные стили, если нужно переопределить Tailwind */
+.house-card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.house-card:hover {
+  transform: translateY(-4px);
+}
