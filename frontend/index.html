@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Аренда домов в Подмосковье | Частный арендодатель</title>
+    <meta name="description" content="Сдам дом в Подмосковье. Уютные коттеджи для длительной аренды. Все удобства, природа, тишина.">
+    <style>
+        @import url(https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap);
+        @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined);
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade { animation: fadeIn 0.5s ease-out forwards; }
+    </style>
+</head>
+<body>
+    <div id="webcrumbs">
+        <div class="min-h-screen bg-gray-50">
+            <!-- Упрощенная шапка -->
+            <header class="bg-white shadow-md sticky top-0 z-50">
+                <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                    <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                        <span class="material-symbols-outlined text-primary-600">home</span>
+                        <h1 class="text-xl font-bold text-primary-600">Дома в аренду</h1>
+                    </a>
+                    <nav class="hidden md:flex items-center space-x-6">
+                        <a href="#properties" class="font-medium hover:text-primary-600 transition-colors">Дома</a>
+                        <a href="#location" class="font-medium hover:text-primary-600 transition-colors">Расположение</a>
+                        <a href="#contact" class="font-medium hover:text-primary-600 transition-colors">Контакты</a>
+                    </nav>
+                    <button id="mobile-menu-button" class="md:hidden rounded-full p-2 hover:bg-gray-100 transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+                
+                <!-- Мобильное меню -->
+                <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+                    <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                        <a href="#properties" class="py-2 font-medium hover:text-primary-600 transition-colors">Дома</a>
+                        <a href="#location" class="py-2 font-medium hover:text-primary-600 transition-colors">Расположение</a>
+                        <a href="#contact" class="py-2 font-medium hover:text-primary-600 transition-colors">Контакты</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Основной контент -->
+            <main>
+                <!-- Герой-секция -->
+                <section class="relative bg-gradient-to-r from-primary-700 to-primary-900 text-white py-16 md:py-24 animate-fade">
+                    <div class="container mx-auto px-4">
+                        <div class="max-w-2xl">
+                            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Уютные дома в Подмосковье</h2>
+                            <p class="text-lg mb-8 text-primary-100">Для длительной аренды от собственника</p>
+                            <div class="bg-white rounded-lg p-4 shadow-lg">
+                                <div class="text-center">
+                                    <a href="#contact" class="inline-block px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors font-medium text-lg">
+                                        Связаться для просмотра
+                                    </a>
+                                    <p class="text-gray-600 mt-3 text-sm">Звоните с 9:00 до 21:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 right-0 w-1/3 h-full hidden lg:block overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Загородный дом в Подмосковье"
+                            class="h-full w-full object-cover rounded-tl-3xl hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                        />
+                    </div>
+                </section>
+
+                <!-- Предлагаемые дома -->
+                <section id="properties" class="py-12 md:py-16">
+                    <div class="container mx-auto px-4">
+                        <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Предлагаемые варианты</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                            <!-- Дом 1 -->
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                                <div class="relative overflow-hidden">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                        alt="Коттедж в сосновом лесу"
+                                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                                        loading="lazy"
+                                    />
+                                    <div class="absolute top-0 right-0 bg-primary-600 text-white px-3 py-1 m-2 rounded-lg font-medium">120 000 ₽/мес</div>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-xl font-bold mb-2">Коттедж в сосновом лесу</h3>
+                                    <p class="text-gray-600 mb-4 flex items-center">
+                                        <span class="material-symbols-outlined mr-1 text-gray-400">location_on</span> 
+                                        Истринский район, 30 км от МКАД
+                                    </p>
+                                    <div class="flex justify-between text-sm text-gray-600 mb-4">
+                                        <span class="flex items-center"> <span class="material-symbols-outlined mr-1">bed</span> 4 комн. </span>
+                                        <span class="flex items-center"> <span class="material-symbols-outlined mr-1">shower</span> 2 санузла </span>
+                                        <span class="flex items-center"> <span class="material-symbols-outlined mr-1">square_foot</span> 180 м² </span>
+                                    </div>
+                                    <ul class="space-y-2 mb-4 text-sm">
+                                        <li class="flex items-center"><span class="material-symbols-outlined text-primary-600 mr-2 text-base">check</span> Участок 15 соток</li>
+                                        <li class="flex items-center"><span class="material-symbols-outlined text-primary-600 mr-2 text-base">check</span> Камин, терраса</li>
+                                        <li class="flex items-center"><span class="material-symbols-outlined text-primary-600 mr-2 text-base">check</span> Гараж на 2 авто</li>
+                                    </ul>
+                                    <a href="#contact" class="block w-full py-2 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors text-center">
+                                        Забронировать просмотр
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Дом 2 -->
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                                <div class="relative overflow-hidden">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                        alt="Уютный дом у озера"
+                                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                                        loading="lazy"
+                                    />
+                                    <div class="absolute top-0 right-0 bg-primary-600 text-white px-3 py-1 m-2 rounded-lg font-medium">90 000 ₽/мес</div>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-xl font-bold mb-2">Уютный дом у озера</h3>
+                                    <p class="text-gray-600 mb-4 flex items-center">
+                                        <span class="material-symbols-outlined mr-1 text-gray-400">location_on</span> 
+                                        Рузский район, 50 км от МКАД
+                                    </p>
+                                    <div class="flex justify-between text-sm text-gray-600 mb-4">
+                                        <span class="flex items-center"> <span class="material-symbols-outlined mr-1">bed</span> 3 комн. </span>
+                                        <span class="flex items-center"> <span class="material-symbols-outlined mr-1">shower</span> 2 санузла </span>
+                                        <span class="flex items-center"> <span class="material-symbols-outlined mr-1">square_foot</span> 120 м² </span>
+                                    </div>
+                                    <ul class="space-y-2 mb-4 text-sm">
+                                        <li class="flex items-center"><span class="material-symbols-outlined text-primary-600 mr-2 text-base">check</span> Собственный пляж</li>
+                                        <li class="flex items-center"><span class="material-symbols-outlined text-primary-600 mr-2 text-base">check</span> Баня, мангальная зона</li>
+                                        <li class="flex items-center"><span class="material-symbols-outlined text-primary-600 mr-2 text-base">check</span> Огороженная территория</li>
+                                    </ul>
+                                    <a href="#contact" class="block w-full py-2 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors text-center">
+                                        Забронировать просмотр
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Расположение -->
+                <section id="location" class="py-12 md:py-16 bg-gray-100">
+                    <div class="container mx-auto px-4">
+                        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Удобное расположение</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                            <div>
+                                <h3 class="text-xl font-bold mb-4 flex items-center">
+                                    <span class="material-symbols-outlined text-primary-600 mr-2">map</span>
+                                    Как добраться
+                                </h3>
+                                <p class="text-gray-600 mb-4">Дома расположены в экологически чистых районах Подмосковья с хорошей транспортной доступностью.</p>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">directions_car</span>
+                                        <span>30-50 минут на автомобиле от МКАД</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">train</span>
+                                        <span>Ближайшая станция электрички в 10-15 минутах езды</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">local_grocery_store</span>
+                                        <span>Магазины и аптеки в 5-10 минутах езды</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl shadow-sm">
+                                <div class="h-64 w-full bg-gray-200 rounded-lg overflow-hidden">
+                                    <!-- Здесь можно вставить реальную карту -->
+                                    <img 
+                                        src="https://maps.googleapis.com/maps/api/staticmap?center=55.7558,37.6176&zoom=10&size=600x300&maptype=roadmap&markers=color:red%7C55.7558,37.6176&key=YOUR_API_KEY" 
+                                        alt="Карта расположения домов"
+                                        class="w-full h-full object-cover"
+                                    >
+                                </div>
+                                <p class="text-sm text-gray-600 mt-2 text-center">Точный адрес сообщим при записи на просмотр</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Контакты -->
+                <section id="contact" class="py-12 md:py-16">
+                    <div class="container mx-auto px-4">
+                        <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Контакты</h2>
+                        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
+                            <h3 class="text-xl font-bold mb-4 flex items-center">
+                                <span class="material-symbols-outlined text-primary-600 mr-2">person</span>
+                                Собственник: Иванов Иван Иванович
+                            </h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">phone</span>
+                                    <div>
+                                        <p class="font-medium">Телефон:</p>
+                                        <a href="tel:+79161234567" class="text-gray-600 hover:text-primary-600 transition-colors">+7 (916) 123-45-67</a>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">mail</span>
+                                    <div>
+                                        <p class="font-medium">Email:</p>
+                                        <a href="mailto:house@example.com" class="text-gray-600 hover:text-primary-600 transition-colors">house@example.com</a>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">schedule</span>
+                                    <div>
+                                        <p class="font-medium">Часы для звонков:</p>
+                                        <p class="text-gray-600">Ежедневно с 9:00 до 21:00</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="mt-6">
+                                <p class="text-sm text-gray-500">Звоните для записи на просмотр. Выезд возможен в удобное для вас время.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Упрощенный подвал -->
+            <footer class="bg-gray-800 text-gray-300 py-8">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                            <span class="material-symbols-outlined text-primary-400">home</span>
+                            <h3 class="text-lg font-bold text-white">Аренда домов в Подмосковье</h3>
+                        </div>
+                        <p class="text-sm">© 2023 Частный арендодатель. Все права защищены.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            content: ["./src/**/*.{html,js}"],
+            theme: {
+                "name":"Bluewave",
+                "fontFamily":{
+                    "sans":["Open Sans","ui-sans-serif","system-ui","sans-serif","\"Apple Color Emoji\"","\"Segoe UI Emoji\"","\"Segoe UI Symbol\"","\"Noto Color Emoji\""]
+                },
+                "extend":{
+                    "fontFamily":{
+                        "title":["Lato","ui-sans-serif","system-ui","sans-serif","\"Apple Color Emoji\"","\"Segoe UI Emoji\"","\"Segoe UI Symbol\"","\"Noto Color Emoji\""],
+                        "body":["Open Sans","ui-sans-serif","system-ui","sans-serif","\"Apple Color Emoji\"","\"Segoe UI Emoji\"","\"Segoe UI Symbol\"","\"Noto Color Emoji\""]
+                    },
+                    "colors":{
+                        "neutral":{
+                            "50":"#f7f7f7",
+                            "100":"#eeeeee",
+                            "200":"#e0e0e0",
+                            "300":"#cacaca",
+                            "400":"#b1b1b1",
+                            "500":"#999999",
+                            "600":"#7f7f7f",
+                            "700":"#676767",
+                            "800":"#545454",
+                            "900":"#464646",
+                            "950":"#282828"
+                        },
+                        "primary":{
+                            "50":"#f3f1ff",
+                            "100":"#e9e5ff",
+                            "200":"#d5cfff",
+                            "300":"#b7a9ff",
+                            "400":"#9478ff",
+                            "500":"#7341ff",
+                            "600":"#631bff",
+                            "700":"#611bf8",
+                            "800":"#4607d0",
+                            "900":"#3c08aa",
+                            "950":"#220174",
+                            "DEFAULT":"#611bf8"
+                        }
+                    }
+                },
+                "fontSize":{
+                    "xs":["12px",{"lineHeight":"19.200000000000003px"}],
+                    "sm":["14px",{"lineHeight":"21px"}],
+                    "base":["16px",{"lineHeight":"25.6px"}],
+                    "lg":["18px",{"lineHeight":"27px"}],
+                    "xl":["20px",{"lineHeight":"28px"}],
+                    "2xl":["24px",{"lineHeight":"31.200000000000003px"}],
+                    "3xl":["30px",{"lineHeight":"36px"}],
+                    "4xl":["36px",{"lineHeight":"41.4px"}],
+                    "5xl":["48px",{"lineHeight":"52.800000000000004px"}],
+                    "6xl":["60px",{"lineHeight":"66px"}],
+                    "7xl":["72px",{"lineHeight":"75.60000000000001px"}],
+                    "8xl":["96px",{"lineHeight":"100.80000000000001px"}],
+                    "9xl":["128px",{"lineHeight":"134.4px"}]
+                },
+                "borderRadius":{
+                    "none":"0px",
+                    "sm":"6px",
+                    "DEFAULT":"12px",
+                    "md":"18px",
+                    "lg":"24px",
+                    "xl":"36px",
+                    "2xl":"48px",
+                    "3xl":"72px",
+                    "full":"9999px"
+                },
+                "spacing":{
+                    "0":"0px",
+                    "1":"4px",
+                    "2":"8px",
+                    "3":"12px",
+                    "4":"16px",
+                    "5":"20px",
+                    "6":"24px",
+                    "7":"28px",
+                    "8":"32px",
+                    "9":"36px",
+                    "10":"40px",
+                    "11":"44px",
+                    "12":"48px",
+                    "14":"56px",
+                    "16":"64px",
+                    "20":"80px",
+                    "24":"96px",
+                    "28":"112px",
+                    "32":"128px",
+                    "36":"144px",
+                    "40":"160px",
+                    "44":"176px",
+                    "48":"192px",
+                    "52":"208px",
+                    "56":"224px",
+                    "60":"240px",
+                    "64":"256px",
+                    "72":"288px",
+                    "80":"320px",
+                    "96":"384px",
+                    "px":"1px",
+                    "0.5":"2px",
+                    "1.5":"6px",
+                    "2.5":"10px",
+                    "3.5":"14px"
+                }
+            },
+            plugins: [],
+            important: '#webcrumbs'
+        };
+
+        // Мобильное меню
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

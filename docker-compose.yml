@@ -1,8 +1,18 @@
 version: '3.8'
+
 services:
   backend:
     build: ./backend
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app
+      - ./:/app
+    environment:
+      - SQLALCHEMY_DATABASE_URI=sqlite:///./rental.db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend

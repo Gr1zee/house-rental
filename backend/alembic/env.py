@@ -20,7 +20,7 @@ from os.path import abspath, dirname
 # Добавляем путь к проекту в PYTHONPATH
 sys.path.insert(0, dirname(dirname(abspath(__file__))))
 
-from app.db import Base  # Импортируем Base из db.py
+from app.db.session import Base  # Импортируем Base из db.py
 from app.models import *  # Импортируем все модели
 
 target_metadata = Base.metadata  # Указываем метаданные для Alembic
