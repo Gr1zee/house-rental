@@ -6,9 +6,9 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app
+      - ./:/app
     environment:
-      - PYTHONUNBUFFERED=1
+      - SQLALCHEMY_DATABASE_URI=sqlite:///./rental.db
 
   frontend:
     build: ./frontend

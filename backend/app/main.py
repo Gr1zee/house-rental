@@ -1,37 +1,24 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy.orm import Session
-from . import models, schemas, crud
-from .db import SessionLocal, engine
+from backend.app.api.endpoints.houses import router
+from backend.app.db.session import engine, Base
 
-# Создаём таблицы в БД
-models.Base.metadata.create_all(bind=engine)
+import sys
+from pathlib import Path
 
-app = FastAPI()
+# Add project root to python path
+sys.path.append(str(Path(__file__).parent.parent))
 
-# Настройка CORS (разрешаем запросы с фронтенда)
+Base.metadata.create_all(bind=engine)
+
+app = FastAPI(title="House Rental API")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # В продакшене замените на домен фронтенда
+    allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Зависимость для получения сессии БД
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-# Эндпоинт для получения списка домов
-@app.get("/houses", response_model=list[schemas.House])
-def read_houses(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    houses = crud.get_houses(db, skip=skip, limit=limit)
-    return houses
-
-# Эндпоинт для добавления дома (пример)
-@app.post("/houses", response_model=schemas.House)
-def add_house(house: schemas.HouseCreate, db: Session = Depends(get_db)):
-    return crud.create_house(db, house=house)
+app.include_router(router, prefix="/api/v1", tags=["houses"])
