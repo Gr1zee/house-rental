@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from . import models, schemas
 
-def get_houses(db: Session, skip: int = 0, limit: int = 100):
+def get_houses(db: Session, skip: int = 0, limit: int = 5):
     return db.query(models.House).offset(skip).limit(limit).all()
 
 def create_house(db: Session, house: schemas.HouseCreate):
