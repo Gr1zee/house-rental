@@ -301,7 +301,13 @@
         // Функция для загрузки данных о домах
         async function fetchHouses() {
             try {
-                const response = await fetch('/api/v1/houses/');
+                    const API_URL = 'http://127.0.0.1:8000/api/v1/houses/';
+                    
+                    const response = await fetch(API_URL, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                    });
                 if (!response.ok) {
                     throw new Error('Ошибка загрузки данных');
                 }
@@ -341,7 +347,7 @@
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
                     <div class="relative overflow-hidden">
                         <img
-                            src="https://source.unsplash.com/random/600x400/?house,${Math.floor(Math.random() * 1000)}"
+                            src="https://www.theplancollection.com/_next/image?url=https%3A%2F%2Fwww.theplancollection.com%2FUpload%2FDesigners%2F177%2F1054%2FPlan1771054MainImage_24_8_2021_14.jpg&w=1080&q=70"
                             alt="${house.title}"
                             class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
