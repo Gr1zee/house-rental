@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.endpoints.houses import router
+from app.api.endpoints.houses import router as houses_router
+from app.api.endpoints.bookings import router as bookings_router
 from app.db.session import engine, Base
 
 import sys
@@ -21,4 +22,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(router, prefix="/api/v1", tags=["houses"])
+app.include_router(houses_router, prefix="/api/v1", tags=["houses"])
+app.include_router(bookings_router, prefix="/api/v1", tags=["bookings"])

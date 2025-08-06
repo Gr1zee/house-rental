@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean, Text
+from sqlalchemy.orm import relationship
 from app.db.session import Base
 
 class House(Base):
@@ -16,3 +17,6 @@ class House(Base):
     is_active = Column(Boolean, default=True)
     contact_phone = Column(String)
     images = Column(Text)  # JSON строку с путями к изображениям
+    
+    # Relationship
+    bookings = relationship("Booking", back_populates="house")
