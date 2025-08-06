@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Аренда домов в Подмосковье | Частный арендодатель</title>
     <meta name="description" content="Сдам дом в Подмосковье. Уютные коттеджи для длительной аренды. Все удобства, природа, тишина.">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url(https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap);
-        @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined);
-        
         /* Анимации */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -28,257 +28,265 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* Кастомные стили для Tailwind */
+        @layer components {
+            .btn-primary {
+                @apply px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors font-medium text-lg;
+            }
+            .btn-outline {
+                @apply px-6 py-3 border border-primary-600 text-primary-600 hover:bg-primary-50 rounded-lg transition-colors font-medium text-lg;
+            }
+            .input-field {
+                @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+            }
+        }
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        title: ['Lato', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f3f1ff',
+                            100: '#e9e5ff',
+                            200: '#d5cfff',
+                            300: '#b7a9ff',
+                            400: '#9478ff',
+                            500: '#7341ff',
+                            600: '#631bff',
+                            700: '#611bf8',
+                            800: '#4607d0',
+                            900: '#3c08aa',
+                            950: '#220174',
+                            DEFAULT: '#611bf8'
+                        }
+                    },
+                    borderRadius: {
+                        'xl': '12px',
+                        '2xl': '18px',
+                        '3xl': '24px'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div id="webcrumbs">
-        <div class="min-h-screen bg-gray-50">
-            <!-- Упрощенная шапка -->
-            <header class="bg-white shadow-md sticky top-0 z-50">
-                <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                    <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-                        <span class="material-symbols-outlined text-primary-600">home</span>
-                        <h1 class="text-xl font-bold text-primary-600">Дома в аренду</h1>
-                    </a>
-                    <nav class="hidden md:flex items-center space-x-6">
-                        <a href="#properties" class="font-medium hover:text-primary-600 transition-colors">Дома</a>
-                        <a href="#location" class="font-medium hover:text-primary-600 transition-colors">Расположение</a>
-                        <a href="#contact" class="font-medium hover:text-primary-600 transition-colors">Контакты</a>
-                    </nav>
-                    <button id="mobile-menu-button" class="md:hidden rounded-full p-2 hover:bg-gray-100 transition-colors">
-                        <span class="material-symbols-outlined">menu</span>
+<body class="font-sans bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+        <!-- Шапка -->
+        <header class="bg-white shadow-md sticky top-0 z-50">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <span class="material-symbols-outlined text-primary-600">home</span>
+                    <h1 class="text-xl font-bold text-primary-600 font-title">Дома в аренду</h1>
+                </a>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#properties" class="font-medium hover:text-primary-600 transition-colors">Дома</a>
+                    <a href="#location" class="font-medium hover:text-primary-600 transition-colors">Расположение</a>
+                    <a href="#contact" class="font-medium hover:text-primary-600 transition-colors">Контакты</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden rounded-full p-2 hover:bg-gray-100 transition-colors">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+            
+            <!-- Мобильное меню -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+                <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                    <a href="#properties" class="py-2 font-medium hover:text-primary-600 transition-colors">Дома</a>
+                    <a href="#location" class="py-2 font-medium hover:text-primary-600 transition-colors">Расположение</a>
+                    <a href="#contact" class="py-2 font-medium hover:text-primary-600 transition-colors">Контакты</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основной контент -->
+        <main class="flex-grow">
+            <!-- Герой-секция -->
+            <section class="relative bg-gradient-to-r from-primary-700 to-primary-900 text-white py-16 md:py-24 animate-fade">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-2xl">
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-title">Уютные дома в Подмосковье</h2>
+                        <p class="text-lg mb-8 text-primary-100">Для длительной аренды от собственника</p>
+                        <div class="bg-white rounded-xl p-6 shadow-lg max-w-md">
+                            <div class="text-center">
+                                <a href="#contact" class="btn-primary inline-block">
+                                    Связаться для просмотра
+                                </a>
+                                <p class="text-gray-600 mt-3 text-sm">Звоните с 9:00 до 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 right-0 w-1/3 h-full hidden lg:block overflow-hidden">
+                    <img
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Загородный дом в Подмосковье"
+                        class="h-full w-full object-cover rounded-tl-3xl hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                    />
+                </div>
+            </section>
+
+            <!-- Предлагаемые дома -->
+            <section id="properties" class="py-12 md:py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 font-title">Предлагаемые варианты</h2>
+                    <div id="houses-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        <!-- Дома будут загружены сюда динамически -->
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Расположение -->
+            <section id="location" class="py-12 md:py-16 bg-gray-100">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 font-title">Удобное расположение</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 flex items-center">
+                                <span class="material-symbols-outlined text-primary-600 mr-2">map</span>
+                                Как добраться
+                            </h3>
+                            <p class="text-gray-600 mb-4">Дома расположены в экологически чистых районах Подмосковья с хорошей транспортной доступностью.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">directions_car</span>
+                                    <span>30-50 минут на автомобиле от МКАД</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">train</span>
+                                    <span>Ближайшая станция электрички в 10-15 минутах езды</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">local_grocery_store</span>
+                                    <span>Магазины и аптеки в 5-10 минутах езды</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm">
+                            <div class="h-64 w-full bg-gray-200 rounded-lg overflow-hidden">
+                                <!-- Здесь можно вставить реальную карту -->
+                                <img 
+                                    src="https://maps.googleapis.com/maps/api/staticmap?center=55.7558,37.6176&zoom=10&size=600x300&maptype=roadmap&markers=color:red%7C55.7558,37.6176&key=YOUR_API_KEY" 
+                                    alt="Карта расположения домов"
+                                    class="w-full h-full object-cover"
+                                >
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2 text-center">Точный адрес сообщим при записи на просмотр</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Контакты -->
+            <section id="contact" class="py-12 md:py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 font-title">Контакты</h2>
+                    <div id="contact-container" class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
+                        <!-- Контактная информация будет загружена сюда динамически -->
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Подвал -->
+        <footer class="bg-gray-800 text-gray-300 py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                        <span class="material-symbols-outlined text-primary-400">home</span>
+                        <h3 class="text-lg font-bold text-white font-title">Аренда домов в Подмосковье</h3>
+                    </div>
+                    <p class="text-sm">© <span id="current-year"></span> Частный арендодатель. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Модальное окно для бронирования -->
+    <div id="booking-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-gray-900 font-title">Бронирование дома</h3>
+                    <button onclick="closeBookingModal()" class="text-gray-400 hover:text-gray-600">
+                        <span class="material-symbols-outlined">close</span>
                     </button>
                 </div>
                 
-                <!-- Мобильное меню -->
-                <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-                    <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-                        <a href="#properties" class="py-2 font-medium hover:text-primary-600 transition-colors">Дома</a>
-                        <a href="#location" class="py-2 font-medium hover:text-primary-600 transition-colors">Расположение</a>
-                        <a href="#contact" class="py-2 font-medium hover:text-primary-600 transition-colors">Контакты</a>
-                    </div>
+                <div class="mb-4 p-4 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-gray-900" id="modal-house-title"></h4>
+                    <p class="text-sm text-gray-600">Цена за день: <span id="modal-house-price"></span> ₽</p>
                 </div>
-            </header>
 
-            <!-- Основной контент -->
-            <main>
-                <!-- Герой-секция -->
-                <section class="relative bg-gradient-to-r from-primary-700 to-primary-900 text-white py-16 md:py-24 animate-fade">
-                    <div class="container mx-auto px-4">
-                        <div class="max-w-2xl">
-                            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Уютные дома в Подмосковье</h2>
-                            <p class="text-lg mb-8 text-primary-100">Для длительной аренды от собственника</p>
-                            <div class="bg-white rounded-lg p-4 shadow-lg">
-                                <div class="text-center">
-                                    <a href="#contact" class="inline-block px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors font-medium text-lg">
-                                        Связаться для просмотра
-                                    </a>
-                                    <p class="text-gray-600 mt-3 text-sm">Звоните с 9:00 до 21:00</p>
-                                </div>
-                            </div>
+                <form id="booking-form" class="space-y-4">
+                    <div>
+                        <label for="guest_name" class="block text-sm font-medium text-gray-700 mb-1">Ваше имя *</label>
+                        <input type="text" id="guest_name" name="guest_name" required class="input-field">
+                    </div>
+                    
+                    <div>
+                        <label for="guest_email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                        <input type="email" id="guest_email" name="guest_email" required class="input-field">
+                    </div>
+                    
+                    <div>
+                        <label for="guest_phone" class="block text-sm font-medium text-gray-700 mb-1">Телефон *</label>
+                        <input type="tel" id="guest_phone" name="guest_phone" required class="input-field">
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="check-in-date" class="block text-sm font-medium text-gray-700 mb-1">Дата заезда *</label>
+                            <input type="date" id="check-in-date" name="check_in_date" required 
+                                   onchange="calculateTotalPrice()" class="input-field">
+                        </div>
+                        
+                        <div>
+                            <label for="check-out-date" class="block text-sm font-medium text-gray-700 mb-1">Дата выезда *</label>
+                            <input type="date" id="check-out-date" name="check_out_date" required 
+                                   onchange="calculateTotalPrice()" class="input-field">
                         </div>
                     </div>
-                    <div class="absolute bottom-0 right-0 w-1/3 h-full hidden lg:block overflow-hidden">
-                        <img
-                            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                            alt="Загородный дом в Подмосковье"
-                            class="h-full w-full object-cover rounded-tl-3xl hover:scale-105 transition-transform duration-500"
-                            loading="lazy"
-                        />
+                    
+                    <div>
+                        <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Дополнительные пожелания</label>
+                        <textarea id="notes" name="notes" rows="3" class="input-field"></textarea>
                     </div>
-                </section>
-
-                <!-- Предлагаемые дома -->
-                <section id="properties" class="py-12 md:py-16">
-                    <div class="container mx-auto px-4">
-                        <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Предлагаемые варианты</h2>
-                        <div id="houses-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                            <!-- Дома будут загружены сюда динамически -->
-                            <div class="loading-spinner"></div>
+                    
+                    <div class="bg-primary-50 p-4 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Количество дней:</span>
+                            <span id="total-days" class="font-semibold">0</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-lg font-semibold text-gray-900">Итого:</span>
+                            <span id="total-price" class="text-xl font-bold text-primary-600">0 ₽</span>
                         </div>
                     </div>
-                </section>
-
-                <!-- Расположение -->
-                <section id="location" class="py-12 md:py-16 bg-gray-100">
-                    <div class="container mx-auto px-4">
-                        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Удобное расположение</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                            <div>
-                                <h3 class="text-xl font-bold mb-4 flex items-center">
-                                    <span class="material-symbols-outlined text-primary-600 mr-2">map</span>
-                                    Как добраться
-                                </h3>
-                                <p class="text-gray-600 mb-4">Дома расположены в экологически чистых районах Подмосковья с хорошей транспортной доступностью.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">directions_car</span>
-                                        <span>30-50 минут на автомобиле от МКАД</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">train</span>
-                                        <span>Ближайшая станция электрички в 10-15 минутах езды</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="material-symbols-outlined mr-2 mt-1 text-primary-600">local_grocery_store</span>
-                                        <span>Магазины и аптеки в 5-10 минутах езды</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm">
-                                <div class="h-64 w-full bg-gray-200 rounded-lg overflow-hidden">
-                                    <!-- Здесь можно вставить реальную карту -->
-                                    <img 
-                                        src="https://maps.googleapis.com/maps/api/staticmap?center=55.7558,37.6176&zoom=10&size=600x300&maptype=roadmap&markers=color:red%7C55.7558,37.6176&key=YOUR_API_KEY" 
-                                        alt="Карта расположения домов"
-                                        class="w-full h-full object-cover"
-                                    >
-                                </div>
-                                <p class="text-sm text-gray-600 mt-2 text-center">Точный адрес сообщим при записи на просмотр</p>
-                            </div>
-                        </div>
+                    
+                    <div class="flex space-x-3 pt-4">
+                        <button type="button" onclick="closeBookingModal()" class="btn-outline flex-1">
+                            Отмена
+                        </button>
+                        <button type="button" onclick="submitBooking()" class="btn-primary flex-1">
+                            Забронировать
+                        </button>
                     </div>
-                </section>
-
-                <!-- Контакты -->
-                <section id="contact" class="py-12 md:py-16">
-                    <div class="container mx-auto px-4">
-                        <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Контакты</h2>
-                        <div id="contact-container" class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
-                            <!-- Контактная информация будет загружена сюда динамически -->
-                            <div class="loading-spinner"></div>
-                        </div>
-                    </div>
-                </section>
-            </main>
-
-            <!-- Упрощенный подвал -->
-            <footer class="bg-gray-800 text-gray-300 py-8">
-                <div class="container mx-auto px-4">
-                    <div class="flex flex-col md:flex-row justify-between items-center">
-                        <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                            <span class="material-symbols-outlined text-primary-400">home</span>
-                            <h3 class="text-lg font-bold text-white">Аренда домов в Подмосковье</h3>
-                        </div>
-                        <p class="text-sm">© <span id="current-year"></span> Частный арендодатель. Все права защищены.</p>
-                    </div>
-                </div>
-            </footer>
+                </form>
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            content: ["./src/**/*.{html,js}"],
-            theme: {
-                "name":"Bluewave",
-                "fontFamily":{
-                    "sans":["Open Sans","ui-sans-serif","system-ui","sans-serif","\"Apple Color Emoji\"","\"Segoe UI Emoji\"","\"Segoe UI Symbol\"","\"Noto Color Emoji\""]
-                },
-                "extend":{
-                    "fontFamily":{
-                        "title":["Lato","ui-sans-serif","system-ui","sans-serif","\"Apple Color Emoji\"","\"Segoe UI Emoji\"","\"Segoe UI Symbol\"","\"Noto Color Emoji\""],
-                        "body":["Open Sans","ui-sans-serif","system-ui","sans-serif","\"Apple Color Emoji\"","\"Segoe UI Emoji\"","\"Segoe UI Symbol\"","\"Noto Color Emoji\""]
-                    },
-                    "colors":{
-                        "neutral":{
-                            "50":"#f7f7f7",
-                            "100":"#eeeeee",
-                            "200":"#e0e0e0",
-                            "300":"#cacaca",
-                            "400":"#b1b1b1",
-                            "500":"#999999",
-                            "600":"#7f7f7f",
-                            "700":"#676767",
-                            "800":"#545454",
-                            "900":"#464646",
-                            "950":"#282828"
-                        },
-                        "primary":{
-                            "50":"#f3f1ff",
-                            "100":"#e9e5ff",
-                            "200":"#d5cfff",
-                            "300":"#b7a9ff",
-                            "400":"#9478ff",
-                            "500":"#7341ff",
-                            "600":"#631bff",
-                            "700":"#611bf8",
-                            "800":"#4607d0",
-                            "900":"#3c08aa",
-                            "950":"#220174",
-                            "DEFAULT":"#611bf8"
-                        }
-                    }
-                },
-                "fontSize":{
-                    "xs":["12px",{"lineHeight":"19.200000000000003px"}],
-                    "sm":["14px",{"lineHeight":"21px"}],
-                    "base":["16px",{"lineHeight":"25.6px"}],
-                    "lg":["18px",{"lineHeight":"27px"}],
-                    "xl":["20px",{"lineHeight":"28px"}],
-                    "2xl":["24px",{"lineHeight":"31.200000000000003px"}],
-                    "3xl":["30px",{"lineHeight":"36px"}],
-                    "4xl":["36px",{"lineHeight":"41.4px"}],
-                    "5xl":["48px",{"lineHeight":"52.800000000000004px"}],
-                    "6xl":["60px",{"lineHeight":"66px"}],
-                    "7xl":["72px",{"lineHeight":"75.60000000000001px"}],
-                    "8xl":["96px",{"lineHeight":"100.80000000000001px"}],
-                    "9xl":["128px",{"lineHeight":"134.4px"}]
-                },
-                "borderRadius":{
-                    "none":"0px",
-                    "sm":"6px",
-                    "DEFAULT":"12px",
-                    "md":"18px",
-                    "lg":"24px",
-                    "xl":"36px",
-                    "2xl":"48px",
-                    "3xl":"72px",
-                    "full":"9999px"
-                },
-                "spacing":{
-                    "0":"0px",
-                    "1":"4px",
-                    "2":"8px",
-                    "3":"12px",
-                    "4":"16px",
-                    "5":"20px",
-                    "6":"24px",
-                    "7":"28px",
-                    "8":"32px",
-                    "9":"36px",
-                    "10":"40px",
-                    "11":"44px",
-                    "12":"48px",
-                    "14":"56px",
-                    "16":"64px",
-                    "20":"80px",
-                    "24":"96px",
-                    "28":"112px",
-                    "32":"128px",
-                    "36":"144px",
-                    "40":"160px",
-                    "44":"176px",
-                    "48":"192px",
-                    "52":"208px",
-                    "56":"224px",
-                    "60":"240px",
-                    "64":"256px",
-                    "72":"288px",
-                    "80":"320px",
-                    "96":"384px",
-                    "px":"1px",
-                    "0.5":"2px",
-                    "1.5":"6px",
-                    "2.5":"10px",
-                    "3.5":"14px"
-                }
-            },
-            plugins: [],
-            important: '#webcrumbs'
-        };
-
         // Мобильное меню
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
@@ -292,6 +300,10 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                
+                // Закрываем мобильное меню после клика
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.add('hidden');
             });
         });
 
@@ -301,16 +313,18 @@
         // Функция для загрузки данных о домах
         async function fetchHouses() {
             try {
-                    const API_URL = 'http://127.0.0.1:8000/api/v1/houses/';
-                    
-                    const response = await fetch(API_URL, {
+                const API_URL = 'http://127.0.0.1:8000/api/v1/houses/';
+                
+                const response = await fetch(API_URL, {
                     headers: {
                         'Content-Type': 'application/json',
                     }
-                    });
+                });
+                
                 if (!response.ok) {
                     throw new Error('Ошибка загрузки данных');
                 }
+                
                 const houses = await response.json();
                 displayHouses(houses);
                 
@@ -372,9 +386,9 @@
                             ${house.has_garden ? '<li class="flex items-center"><span class="material-symbols-outlined text-primary-600 mr-2 text-base">check</span> Участок с садом</li>' : ''}
                             <li class="flex items-center"><span class="material-symbols-outlined text-primary-600 mr-2 text-base">check</span> ${house.description.substring(0, 50)}...</li>
                         </ul>
-                        <a href="tel:${house.contact_phone}" class="block w-full py-2 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors text-center">
-                            Забронировать просмотр
-                        </a>
+                        <button onclick="openBookingModal(${house.id}, '${house.title}', ${house.price})" class="btn-outline w-full">
+                            Забронировать
+                        </button>
                     </div>
                 </div>
             `).join('');
@@ -420,6 +434,126 @@
 
         // Загружаем данные при загрузке страницы
         document.addEventListener('DOMContentLoaded', fetchHouses);
+
+        // Глобальные переменные для модального окна
+        let currentHouseId = null;
+        let currentHouseTitle = '';
+        let currentHousePrice = 0;
+
+        // Функция для открытия модального окна бронирования
+        function openBookingModal(houseId, houseTitle, housePrice) {
+            currentHouseId = houseId;
+            currentHouseTitle = houseTitle;
+            currentHousePrice = housePrice;
+            
+            // Заполняем информацию о доме в модальном окне
+            document.getElementById('modal-house-title').textContent = houseTitle;
+            document.getElementById('modal-house-price').textContent = housePrice.toLocaleString('ru-RU');
+            
+            document.getElementById('booking-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            // Устанавливаем минимальную дату заезда на завтра
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('check-in-date').min = tomorrow.toISOString().split('T')[0];
+            
+            // Сбрасываем форму
+            document.getElementById('booking-form').reset();
+            document.getElementById('total-price').textContent = '0 ₽';
+            document.getElementById('total-days').textContent = '0';
+        }
+
+        // Функция для закрытия модального окна
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            document.getElementById('booking-form').reset();
+        }
+
+        // Функция для расчета стоимости
+        function calculateTotalPrice() {
+            const checkIn = new Date(document.getElementById('check-in-date').value);
+            const checkOut = new Date(document.getElementById('check-out-date').value);
+            
+            if (checkIn && checkOut && checkOut > checkIn) {
+                const days = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+                const totalPrice = days * currentHousePrice;
+                document.getElementById('total-price').textContent = totalPrice.toLocaleString('ru-RU') + ' ₽';
+                document.getElementById('total-days').textContent = days;
+            } else {
+                document.getElementById('total-price').textContent = '0 ₽';
+                document.getElementById('total-days').textContent = '0';
+            }
+        }
+
+        // Функция для отправки бронирования
+        async function submitBooking() {
+            const form = document.getElementById('booking-form');
+            const formData = new FormData(form);
+            
+            const bookingData = {
+                house_id: currentHouseId,
+                guest_name: formData.get('guest_name'),
+                guest_email: formData.get('guest_email'),
+                guest_phone: formData.get('guest_phone'),
+                check_in_date: formData.get('check_in_date'),
+                check_out_date: formData.get('check_out_date'),
+                notes: formData.get('notes')
+            };
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/v1/bookings/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bookingData)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    showSuccessMessage('Бронирование успешно создано! Мы свяжемся с вами для подтверждения.');
+                    closeBookingModal();
+                } else {
+                    const error = await response.json();
+                    showErrorMessage(error.detail || 'Ошибка при создании бронирования');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                showErrorMessage('Ошибка при отправке данных');
+            }
+        }
+
+        // Функции для показа сообщений
+        function showSuccessMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            messageDiv.textContent = message;
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        }
+
+        function showErrorMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            messageDiv.textContent = message;
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        }
+
+        // Закрытие модального окна при клике вне его
+        document.getElementById('booking-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBookingModal();
+            }
+        });
     </script>
 </body>
 </html>
