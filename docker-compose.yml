@@ -1,13 +1,13 @@
-
 services:
   backend:
     build: ./backend
     ports:
       - "8000:8000"
     volumes:
-      - ./:/app
+      - ./backend:/backend
+      - ./data:/backend/data
     environment:
-      - SQLALCHEMY_DATABASE_URI=sqlite:///./rental.db
+      - SQLALCHEMY_DATABASE_URI=sqlite:///./data/rental.db
 
   frontend:
     build: ./frontend

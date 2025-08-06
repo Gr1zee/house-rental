@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.api.endpoints.houses import router
-from backend.app.db.session import engine, Base
+from app.api.endpoints.houses import router
+from app.db.session import engine, Base
 
 import sys
 from pathlib import Path
